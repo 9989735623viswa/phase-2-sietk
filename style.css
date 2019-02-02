@@ -1,0 +1,71 @@
+.mainDiv{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+
+}
+.subDiv{
+  width: 85%;
+  padding: 1%;
+  margin: 1%;
+  border: 2px solid #8EEB10  ;
+
+}
+.subDiv1{
+  width: 40%;
+  padding: 1%;
+  margin: 1%;
+  border: 2px solid #ddd;
+}
+input,select{
+  width: 90%;
+  margin:1%;
+}
+.subDiv h1{
+  color: #E914E6;
+  text-shadow:2px 2px 2px #3498DB;
+}
+.subDiv1 h1{
+  color: #E914E6;
+  text-shadow:2px 2px 2px #3498DB;
+}
+button{
+  margin-left: 45%;
+}
+img{
+  width:150px;
+  height:auto;
+  margin: 0 auto;
+}
+
+.parent{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  }
+.child{
+  width:30%;
+  border:1px solid #3498DB;
+  box-shadow: 3px 3px 3px #fff;
+  padding:1%;
+  margin:1%;
+ text-align: center;
+}
+.main{
+  display: flex;
+  flex-wrap: wrap;
+}
+.left{
+  flex: 1;
+  border: 2px solid #E70FD3;
+  padding:2%;
+  margin: 1%;
+}
+.right{
+  flex: 2;
+  border: 2px solid #E7DD0F;
+  padding:2%;
+  margin: 1%;
+}
+  

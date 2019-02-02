@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>from for resume</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="mainDiv">
+      <div class="subDiv">
+        <h1>carrer objective</h1>
+      <select id="carrer" name="carrer">
+        <option>select your carrer objective</option>
+        <option>To utilige my knowledge for growth of organization</option>
+        <option>To secure employment with a reputable company, where I can utilize my skills and business studies background to the maximum.</option>
+      </select>
+      </div>
+      <!--personal information  -->
+<div class="subDiv1">
+  <h1>personal information</h1>
+  <input type="text" name="name" id="name" placeholder="enter your name">
+  <input type="number"name="number" id="phone" placeholder="enter your phone phonenumber">
+  <input type="text" name="email" id="email" placeholder="enter your email">
+</div>
+<!--educational details  -->
+<div class="subDiv1">
+  <h1>Educational details</h1>
+  <label for="gbranch">
+    <select id="gbranch" name="gbranch">
+    <option>mca</option>
+    <option>M tech</option>
+    </select>
+  </label>
+  <label for="ginst">
+  <input type="text" name="ginst" id="ginst" placeholder="enter your college name">
+  </label>
+  <label for="gper">
+    <input type="number" name="gper" id="gper" placeholder="enter your percentage">
+  </label>
+  <label for="gyop">
+    <input type="number" name="gyop" id="gyop" placeholder="enter your year of passing">
+  </label>
+  </div>
+  <!--uG details  -->
+  <div class="subDiv1">
+<h1>UG details</h1>
+<label for="ubranch">
+  <select id="ubranch" name="ubranch">
+  <option>BSC</option>
+  <option>BCA</option>
+  <option>BBA</option>
+  </select>
+</label>
+<label for="uinst">
+<input type="text" name="uinst" id="uinst" placeholder="enter your college name">
+</label>
+<label for="uper">
+  <input type="number" name="uper" id="uper" placeholder="enter your percentage">
+</label>
+<label for="uyop">
+  <input type="number" name="uyop" id="uyop" placeholder="enter your year of passing">
+</label>
+  </div>
+  <!--intermediate details  -->
+  <div class="subDiv1">
+<h1>intermediate details</h1>
+<label for="ibranch">
+  <select id="ibranch" name="ibranch">
+  <option>mpc</option>
+  <option>bipc</option>
+  <option>mec</option>
+  </select>
+</label>
+<label for="inst">
+<input type="text" name="inst" id="inst" placeholder="enter your college name">
+</label>
+<label for="iper">
+  <input type="number" name="per" id="iper" placeholder="enter your percentage">
+</label>
+<label for="iyop">
+  <input type="number" name="youp" id="iyop" placeholder="enter your year of passing">
+</label>
+  </div>
+  <!--ssc details  -->
+  <div class="subDiv1">
+<h1>ssc details</h1>
+<label for="ssc">
+  <select id="sbranch" name="sbranch">
+  <option>10</option>
+  </select>
+</label>
+<label for="sinst">
+<input type="text" name="sinst" id="sinst" placeholder="enter your college name">
+</label>
+<label for="sper">
+  <input type="number" name="sper" id="sper" placeholder="enter your percentage">
+</label>
+<label for="syop">
+  <input type="number" name="syop" id="syop" placeholder="enter your year of passing">
+</label>
+  </div>
+  <!-- Achivements -->
+  <div class="subDiv1">
+    <h1>Achivements</h1>
+    <label for="achive1">
+      <input type="text" name="achive1" id="achive1" placeholder="enter your first Achivement">
+    </label>
+    <label for="achive2">
+      <input type="text" name="achive2" id="achive2" placeholder="enter your second Achivement">
+    </label>
+  </div>
+    </div>
+    <button type="button" name="button" onclick="submitdata()">SUBMIT</button>
+  </body>
+</html>
+
+
+<!--java script -->
+<script type="text/javascript">
+  function submitdata(){
+     var carrer=document.getElementById('carrer').value;
+
+
+     var name =document.getElementById("name").value;
+     var phonenumber = document.getElementById('phone').value;
+     var email=document.getElementById('email').value;
+
+     var gbranch=document.getElementById("gbranch").value;
+     var ginst=document.getElementById('ginst').value;
+     var gper =document.getElementById('gper').value;
+     var gyop =document.getElementById('gyop').value;
+
+
+     var ibranch=document.getElementById("ibranch").value;
+     var inst=document.getElementById('inst').value;
+     var iper =document.getElementById('iper').value;
+     var iyop =document.getElementById('iyop').value;
+
+
+     var ubranch=document.getElementById("ubranch").value;
+     var uinst=document.getElementById('uinst').value;
+     var uper =document.getElementById('uper').value;
+     var uyop=document.getElementById('uyop').value;
+
+     var sbranch =document.getElementById("sbranch").value;
+     var sinst=document.getElementById('sinst').value;
+     var sper =document.getElementById('sper').value;
+     var syop =document.getElementById('syop').value;
+
+
+     var achive1 =document.getElementById('achive1').value;
+     var achive2 =document.getElementById('achive2').value;
+
+
+     var sietk;
+     var result;
+     var store;
+     var tx;
+
+
+     var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+     // db creation
+     sietk =indexedDB.open("mydb",1);
+     sietk.onerror = function(v){
+       console.log("error"+v);
+       }
+       sietk.onupgradeneeded = function(v){
+         result = v.target.result;
+        store = result.createObjectStore("resume", {keyPath: "name"})
+       }
+
+        sietk.onsuccess = function(v){
+          result = v.target.result;
+          tx = result.transaction("resume",'readwrite');
+          store = tx.objectStore("resume");
+          store.put({
+            carrer:carrer,
+            name : name,
+            phonenumber :phonenumber,
+            email : email,
+            education : [
+              {
+              course : gbranch,
+              institute: ginst,
+              percentage:gper,
+              yearofpassing:gyop
+            },
+            {
+            course : ibranch,
+            institute: inst,
+            percentage:iper,
+            yearofpassing:iyop
+          },
+          {
+          course : ubranch,
+          institute: uinst,
+          percentage:uper,
+          yearofpassing:uyop
+        },
+        {
+        course : sbranch,
+        institute:sinst,
+        percentage:sper,
+        yearofpassing:syop
+      }
+    ],
+    Achivements:[
+                 {
+                   achie:achive1
+                 },
+                 {
+                   achie:achive2
+                 }
+      ]
+  });
+  alert("data submitted");
+  window.open("index.html");
+        }
+ }
+</script>
